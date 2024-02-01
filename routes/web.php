@@ -20,6 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/search', [SearchController::class,'index']);
+Route::get('/search', [SearchController::class,'index'])->name('search');
 Route::post('/result', [ResultController::class,'index'])->name('result');
 Route::post('/detail', [DetailController::class,'index'])->name('detail');
