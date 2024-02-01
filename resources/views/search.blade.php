@@ -6,8 +6,8 @@
             <form method="POST" action="{{ route('result') }}">
                 <div class="form-group">
                     {{ csrf_field() }}
-                    <p class="ext-monospace">現在地</p>
-                    <input type="text" name="current_location" class="form-control">
+                    <button type="button" id="geolocation_button">現在地</button><p></p>
+                    <input type="text" name="current_location" id="geolocation_status" class="form-control">
                     <p class="ext-monospace">半径</p>
                     <input type="text" name="search_radius" class="form-control">
                     <br><input type="submit" value="検索" class="btn btn-default">
@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <a href="{{ route('result') }}">結果へ</a>
-    </div>
+
+<script src="{{ Vite::asset('resources/js/geolocation.js') }}"></script>
+
 @endsection
