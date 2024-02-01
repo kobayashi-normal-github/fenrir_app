@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ResultController;
+use App\Http\Controllers\DetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::get('/', function () {
 });
 
 Route::get('/search', [SearchController::class,'index']);
+Route::post('/result', [ResultController::class,'index'])->name('result');
+Route::post('/detail', [DetailController::class,'index'])->name('detail');
