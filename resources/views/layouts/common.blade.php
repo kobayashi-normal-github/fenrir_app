@@ -8,7 +8,7 @@
         <title>@yield('title')</title>
     </head>
     <body>
-        <div class="mx-auto" style="width: 600px; background-color: #2ff1d4; margin: 10px 10px">
+        <div class="mx-auto" style="width: 600px; background-color: #e0e0e0; margin: 10px 10px">
             <div class="container-fluid">
                 @yield('content')
             </div>

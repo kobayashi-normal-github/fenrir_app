@@ -8,7 +8,7 @@ class SearchController extends Controller
 {
     public function index()
     {
-        $msg = 'hello';
+        $msg = '入力';
             return view('search', ['msg' => $msg]);
     }
 }
