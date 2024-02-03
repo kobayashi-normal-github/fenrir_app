@@ -3,22 +3,20 @@
 @section('content')
     <div class="row">
         <div class="col-sm-12">
-            <form method="POST" action="/article/add">
-                <div class="form-group">
-                    {{ csrf_field() }}
-                    <p class="ext-monospace">タイトル</p>
-                    <input type="text" name="title" class="form-control">
-                    <p class="ext-monospace">本文</p><input type="text" name="body" class="form-control">
-                    <br><input type="submit" value="投稿" class="btn btn-default">
-                </div>
-            </form>
-
+            @foreach ($restaurants as $data)
+                <p>{{ $data['name'] }}</p>
+                <p>{{ $data['name_kana'] }}</p>
+                <p>{{ $data['address'] }}</p>
+                <p>{{ $data['open'] }}</p>
+                <p>{{ $data['close'] }}</p>
+                <img src="{{ $data['photo']['pc']['l'] }}"/>
+            @endforeach
         </div>
     </div>
     <div class="mx-auto" style="width: 450px;">
         <div class="row">
             <div class="col-sm-12">
-                {{-- <p>{{ $msg }}</p> --}}
+                <a href="{{ route('result') }}">戻る</a>
             </div>
         </div>
     </div>
