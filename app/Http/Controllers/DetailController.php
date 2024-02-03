@@ -15,7 +15,16 @@ class DetailController extends Controller
 
     public function index(Request $request)
     {
+        dump($request);
         //  緯度取得
+        $inputLatitude = $request->input('latitude');
+        //  緯度取得
+        $inputLongitude = $request->input('longitude');
+        //  検索範囲
+        $inputSearchRadius = $request->input('search_radius');
+        //  検索時のページ
+        $inputPage = $request->input('page');
+        //  お店ID取得
         $shop_id = $request->route('id');
         // インスタンス生成
         $client = new Client();
@@ -45,6 +54,6 @@ class DetailController extends Controller
         }
         // dump($restaurants);
         $msg = '詳細';
-        return view('detail', compact('msg','request','restaurants'));
+        return view('detail', compact('inputLatitude','inputLongitude','inputSearchRadius','inputPage','request','restaurants'));
     }
 }

@@ -23,4 +23,4 @@ Route::get('/', function () {
 Route::get('/search', [SearchController::class,'index'])->name('search');
 // Route::post('/result/{page?}', [ResultController::class,'index'])->name('result');
 Route::get('/result', [ResultController::class,'index'])->name('result');
-Route::get('/{id}/detail', [DetailController::class,'index'])->name('detail');
+Route::post('/{id}/detail', [DetailController::class,'index'])->name('detail');
