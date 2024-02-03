@@ -4,8 +4,8 @@
     <div class="row">
         <div class="col-sm-12">
             @foreach ($paginatedRestaurantDatas as $data)
-                <p>{{ $data['name'] }}</p>
-                <p>{{ $data['address'] }}</p>
+                <a href={{ route('detail', ['id' => $data['id']]) }}>{{ $data['name'] }}</a>
+                <p>{{ $data['access'] }}</p>
                 <img src="{{ $data['photo']['pc']['l'] }}"/>
             @endforeach
         </div>

@@ -36,7 +36,7 @@ class ResultController extends Controller
                 'format' => 'json',
                 'lat' => $inputLatitude,
                 'lng' => $inputLongitude,
-                'range' => 5,
+                'range' => 1,
             ],
         ];
 
@@ -44,7 +44,12 @@ class ResultController extends Controller
         $response = $client->request($method, self::REQUEST_URL, $options);
 
         // 'format' => 'json'としたのでJSON形式でデータが返ってくるので、連想配列型のオブジェクトに変換
-        $restaurants = json_decode($response->getBody(), true)['results']['shop'];
+        $restaurants = json_decode($response->getBody(), true)['results'];
+        if(!isset($restaurants['results_available']) or $restaurants['results_available']==0){
+            return redirect('search');
+        }else{
+            $restaurants = $restaurants['shop'];
+        }
         // dump($restaurants);
 
         // 1ページごとの表示件数
@@ -56,7 +61,6 @@ class ResultController extends Controller
         $pageData = collect($restaurants)->slice(($page - 1) * $perPage, $perPage);
         $options = [
                 'path' => Paginator::resolveCurrentPath(),
-                // 'path' => $request->url(),
                 'query' => $request->query(),
                 'fragment' => '',
                 'pageName' => 'page',
