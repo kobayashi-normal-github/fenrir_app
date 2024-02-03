@@ -18,7 +18,7 @@
     <div class="mx-auto" style="width: 450px;">
         <div class="row">
             <div class="col-sm-12">
-                <p>{{ $msg }}</p>
+                {{-- <p>{{ $msg }}</p> --}}
             </div>
         </div>
     </div>
