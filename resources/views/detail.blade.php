@@ -13,11 +13,15 @@
             @endforeach
         </div>
     </div>
-    <div class="mx-auto" style="width: 450px;">
-        <div class="row">
-            <div class="col-sm-12">
-                <a href="{{ route('result') }}">戻る</a>
+    <div class="row">
+        <form method="GET" action="{{ route('result') }}">
+            <div class="form-group">
+                <input type="hidden" name="latitude" class="form-control" value="{{ $inputLatitude }}">
+                <input type="hidden" name="longitude" class="form-control" value="{{ $inputLongitude }}">
+                <input type="hidden" name="search_radius" class="form-control" value="{{ $inputSearchRadius }}">
+                <input type="hidden" name="page" value="{{ $inputPage }}">
+                <input type="submit" value="戻る" class="btn btn-default">
             </div>
-        </div>
+        </form>
     </div>
 @endsection

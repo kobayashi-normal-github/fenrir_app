@@ -21,13 +21,13 @@ function geoFindMe() {
         }
 
         function error() {
-            status.textContent = "Unable to retrieve your location";
+            status.value = "位置情報が取得できませんでした";
         }
 
         if (!navigator.geolocation) {
-            status.textContent = "このブラウザーは位置情報に対応していません";
+            status.value = "このブラウザーは位置情報に対応していません";
         } else {
-            status.textContent = "位置情報を取得中…";
+            status.value = "位置情報を取得中…";
             navigator.geolocation.getCurrentPosition(success, error);
         }
     }

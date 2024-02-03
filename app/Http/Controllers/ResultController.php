@@ -20,6 +20,10 @@ class ResultController extends Controller
         $inputLatitude = $request->input('latitude');
         //  緯度取得
         $inputLongitude = $request->input('longitude');
+        //  検索範囲
+        $inputSearchRadius = $request->input('search_radius');
+        dump($request->input());
+        dump($request);
         // インスタンス生成
         $client = new Client();
         // HTTPリクエストメソッド
@@ -36,7 +40,7 @@ class ResultController extends Controller
                 'format' => 'json',
                 'lat' => $inputLatitude,
                 'lng' => $inputLongitude,
-                'range' => 1,
+                'range' => $inputSearchRadius,
             ],
         ];
 
@@ -67,8 +71,8 @@ class ResultController extends Controller
         ];
         $paginatedRestaurantDatas = new LengthAwarePaginator($pageData, collect($restaurants)->count(), $perPage, $page, $options);
         $msg = '結果';
-        dump($paginatedRestaurantDatas);
+        // dump($paginatedRestaurantDatas);
         // dump($request);
-        return view('result', compact('perPage','request','paginatedRestaurantDatas'));
+        return view('result', compact('inputLatitude','inputLongitude','inputSearchRadius','request','paginatedRestaurantDatas'));
     }
 }
