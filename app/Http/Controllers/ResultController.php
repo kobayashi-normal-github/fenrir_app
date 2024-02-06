@@ -22,8 +22,6 @@ class ResultController extends Controller
         $inputLongitude = $request->input('longitude');
         //  検索範囲
         $inputSearchRadius = $request->input('search_radius');
-        dump($request->input());
-        dump($request);
         // インスタンス生成
         $client = new Client();
         // HTTPリクエストメソッド
@@ -50,6 +48,8 @@ class ResultController extends Controller
         // 'format' => 'json'としたのでJSON形式でデータが返ってくるので、連想配列型のオブジェクトに変換
         $restaurants = json_decode($response->getBody(), true)['results'];
         if(!isset($restaurants['results_available']) or $restaurants['results_available']==0){
+            // dump($restaurants);
+            // dd($options);
             return redirect('search');
         }else{
             $restaurants = $restaurants['shop'];

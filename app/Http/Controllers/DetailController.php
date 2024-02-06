@@ -15,7 +15,7 @@ class DetailController extends Controller
 
     public function index(Request $request)
     {
-        dump($request);
+        // dump($request);
         //  緯度取得
         $inputLatitude = $request->input('latitude');
         //  緯度取得
