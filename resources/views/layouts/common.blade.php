@@ -7,13 +7,16 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
         <title>@yield('title')</title>
     </head>
-    <body>
-        <div class="mx-auto">
+    <body class="bg-light-subtle">
+        <header class="mx-auto m-1">
+            <h1>ここ近飲食店</h1>
+        </header>
+        <div class="mx-auto m-1">
             <div class="container">
                 @yield('content')
             </div>
         </div>
-        <footer>
+        <footer class="mx-auto m-1">
             <a href="http://webservice.recruit.co.jp/"><img src="http://webservice.recruit.co.jp/banner/hotpepper-s.gif" alt="ホットペッパーグルメ Webサービス" width="135" height="17" border="0" title="ホットペッパーグルメ Webサービス"></a>
         </footer>
     </body>

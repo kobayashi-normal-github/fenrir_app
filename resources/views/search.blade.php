@@ -6,7 +6,7 @@
             <form method="GET" action="{{ route('result') }}">
                 <div class="form-group">
                     {{-- {{ csrf_field() }} --}}
-                    <button type="button" id="geolocation_button">現在地</button><p></p>
+                    <button type="button" id="geolocation_button" class="btn btn-light btn-outline-dark">現在地</button><p></p>
                     {{-- <input type="text" name="current_location" id="geolocation_status" class="form-control" required> --}}
                     <input type="text" name="current_location" id="geolocation_status" class="form-control" disabled>
                     <p>緯度</p>
@@ -23,7 +23,7 @@
                         <option value="5">~3000[m]</option>
                     </select>
                     <br>
-                    <input type="submit" value="検索" class="btn btn-default">
+                    <input type="submit" value="検索" class="btn btn-light btn-outline-dark">
                     <input type="hidden" name="page" value="1">
                 </div>
             </form>
