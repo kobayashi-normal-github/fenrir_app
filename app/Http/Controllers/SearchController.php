@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $msg = '入力';
-            return view('search', ['msg' => $msg]);
+
+        $flash_messages = "";
+        return view('search', compact('flash_messages'));
     }
 }

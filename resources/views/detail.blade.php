@@ -3,14 +3,40 @@
 @section('content')
     <div class="row bg-secondary-subtle bg-gradient border-bottom border-top border-secondary p-3">
             @foreach ($restaurants as $data)
-                <div class="col-md-auto">
-                    <img src="{{ $data['photo']['pc']['l'] }}" class="img-fluid">
+                <div class="col-md-auto d-flex align-items-center">
+                    <img src="{{ $data['photo']['pc']['l'] }}" class="img-fluid mx-auto">
                 </div>
                 <div class="col">
-                <p>{{ $data['name'] }}<br>{{ $data['name_kana'] }}</p>
-                <p>住所<br>{{ $data['address'] }}</p>
-                <p>営業時間<br>{{ $data['open'] }}</p>
-                <p>定休日<br>{{ $data['close'] }}</p>
+                    <dl class="row">
+                        <div class="bg-light rounded border border-2 mb-1 mt-1">
+                            <dt>{{ $data['name'] }}</dt>
+                            <dd><a href="{{ $data['urls']['pc'] }}">店舗ページ(別サイトに飛びます)</a></dd>
+                        </div>
+                        <div class="bg-light rounded border border-2 mb-1 mt-1">
+                            <dt>住所</dt>
+                            <dd>{{ $data['address'] }}</dd>
+                        </div>
+                        <div class="bg-light rounded border border-2 mb-1 mt-1">
+                            <dt>営業時間</dt>
+                            <dd>{{ $data['open'] }}</dd>
+                        </div>
+                        <div class="bg-light rounded border border-2 mb-1 mt-1">
+                            <dt>定休日</dt>
+                            <dd>{{ $data['close'] }}</dd>
+                        </div>
+                        @if (isset($data['budget']['average']) and !empty($data['budget']['average']))
+                            <div class="bg-light rounded border border-2 mb-1 mt-1">
+                                <dt>平均料金</dt>
+                                <dd>{{ $data['budget']['average'] }}</dd>
+                            </div>
+                        @endif
+                        @if (isset($data['budget_memo']) and !empty($data['budget_memo']))
+                            <div class="bg-light rounded border border-2 mb-1 mt-1">
+                                <dt>料金備考</dt>
+                                <dd>{{ $data['budget_memo'] }}</dd>
+                            </div>
+                        @endif
+                    </dl>
                 </div>
             @endforeach
     </div>
