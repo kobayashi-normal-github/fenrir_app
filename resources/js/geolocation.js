@@ -1,27 +1,25 @@
-function geoFindMe() {
-        console.log('on')
+function getGeoLocation() {
         const status = document.querySelector("#geolocation_status");
         const inputLatitude = document.querySelector("#latitude");
         const inputLongitude = document.querySelector("#longitude");
-        // const mapLink = document.querySelector("#map-link");
-
-        // mapLink.href = "";
-        // mapLink.textContent = "";
 
         function success(position) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
 
-            status.value = `緯度: ${latitude}°、経度: ${longitude}°`;
-            // status.value = `${latitude},${longitude}`;
+            status.value = `緯度: ${latitude}° 経度: ${longitude}°`;
             inputLatitude.value = latitude;
             inputLongitude.value = longitude;
-            // mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-            // mapLink.textContent = `緯度: ${latitude}°、経度: ${longitude}°`;
         }
 
-        function error() {
-            status.value = "位置情報が取得できませんでした";
+        function error(error) {
+            status.value = "位置情報が取得できませんでした．";
+            if(error.code == 1){
+                window.alert('位置情報取得を許可してください');
+            }else if(error.code == 3){
+                window.alert('タイムアウトしました．');
+            }
+
         }
 
         if (!navigator.geolocation) {
@@ -31,4 +29,4 @@ function geoFindMe() {
             navigator.geolocation.getCurrentPosition(success, error);
         }
     }
-    document.querySelector("#geolocation_button").addEventListener("click", geoFindMe);
+    document.querySelector("#geolocation_button").addEventListener("click", getGeoLocation);

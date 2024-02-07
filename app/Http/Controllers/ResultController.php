@@ -50,7 +50,8 @@ class ResultController extends Controller
         if(!isset($restaurants['results_available']) or $restaurants['results_available']==0){
             // dump($restaurants);
             // dd($options);
-            return redirect('search');
+            return redirect('search')
+                ->with('error','対象範囲に飲食店が見つかりませんでした');
         }else{
             $restaurants = $restaurants['shop'];
         }
