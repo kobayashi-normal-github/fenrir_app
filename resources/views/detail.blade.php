@@ -1,6 +1,21 @@
 @extends('layouts.common')
 @section('title', '詳細')
 @section('content')
+    <div class="mt-3 d-flex flex-row">
+        <form method="GET" action="{{ route('result') }}">
+            <div class="form-group">
+                <input type="hidden" name="latitude" class="form-control" value="{{ $inputLatitude }}">
+                <input type="hidden" name="longitude" class="form-control" value="{{ $inputLongitude }}">
+                <input type="hidden" name="search_radius" class="form-control" value="{{ $inputSearchRadius }}">
+                <input type="hidden" name="page" value="{{ $inputPage }}">
+                <input type="submit" value="戻る" class="btn btn-light btn-outline-dark">
+            </div>
+        </form>
+        <div class="ms-3">
+            <a href="{{ route('search') }}" class="btn btn-light btn-outline-dark text-decoration-none">検索ページに戻る</a>
+        </div>
+    </div>
+
     <div class="row bg-secondary-subtle bg-gradient border-bottom border-top border-secondary p-3">
             @foreach ($restaurants as $data)
                 <div class="col-md-auto d-flex align-items-center">
@@ -40,7 +55,7 @@
                 </div>
             @endforeach
     </div>
-    <div class="row mt-3">
+    <div class="mt-3 d-flex flex-row">
         <form method="GET" action="{{ route('result') }}">
             <div class="form-group">
                 <input type="hidden" name="latitude" class="form-control" value="{{ $inputLatitude }}">
@@ -50,5 +65,8 @@
                 <input type="submit" value="戻る" class="btn btn-light btn-outline-dark">
             </div>
         </form>
+        <div class="ms-3">
+            <a href="{{ route('search') }}" class="btn btn-light btn-outline-dark text-decoration-none">検索ページに戻る</a>
+        </div>
     </div>
 @endsection

@@ -2,13 +2,18 @@
 @section('title', '結果')
 @section('content')
     <div class="row">
-        <div class="row mt-1 mx-auto border-bottom border-secondary d-flex flex-wrap">
+        <div class="row">
+            <div class="d-flex m-0 p-0">
+                <a href="{{ route('search') }}" class="btn btn-light btn-outline-dark text-decoration-none">戻る</a>
+            </div>
+        </div>
+        <div class="row mt-1 mx-auto border-secondary d-flex flex-wrap">
             {{ $paginatedRestaurantDatas->links() }}
         </div>
         @foreach ($paginatedRestaurantDatas as $data)
         <form method="POST" action="{{ route('detail',['id' => $data['id']]) }}">
             {{ csrf_field() }}
-            <div class="row bg-secondary-subtle bg-gradient border-bottom border-secondary p-3">
+            <div class="row bg-secondary-subtle bg-gradient border-bottom border-top border-secondary p-3">
                 <div class="col-md-3 d-flex align-items-center">
                     <input type="image" src="{{ $data['photo']['pc']['l'] }}" class="img-fluid mx-auto">
                 </div>
@@ -47,10 +52,8 @@
         {{ $paginatedRestaurantDatas->links() }}
     </div>
     <div class="row">
-        <div class="row">
-            <div class="d-inline-flex m-0">
-                <a href="{{ route('search') }}" class="btn btn-light btn-outline-dark text-decoration-none">戻る</a>
-            </div>
+        <div class="d-flex m-0 p-0">
+            <a href="{{ route('search') }}" class="btn btn-light btn-outline-dark text-decoration-none">戻る</a>
         </div>
     </div>
 @endsection
