@@ -9,7 +9,9 @@
     </head>
     <body class="bg-light-subtle">
         <header class="mx-auto m-1">
-            <h1>ここ近飲食店</h1>
+            <div class="container">
+            <h1><a href="{{ route('search') }}" class="text-decoration-none link-dark">ここ近飲食店</a></h1>
+            </div>
         </header>
         <div class="mx-auto m-1">
             <div class="container">
