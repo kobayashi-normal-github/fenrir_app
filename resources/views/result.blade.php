@@ -24,7 +24,6 @@
                         <input type="hidden" name="search_radius" value="{{ $inputSearchRadius }}">
                         <input type="hidden" name="page" value="{{ $paginatedRestaurantDatas->currentPage() }}">
                         <input type="submit" class="btn btn-link text-decoration-none fw-medium" value="{{ $data['name'] }}">
-                        {{-- <a href={{ route('detail', ['id' => $data['id'],'latitude' => $inputLatitude,'longitude' => $inputLongitude,'searchRadius' => $inputSearchRadius]) }}>{{ $data['name'] }}</a> --}}
                     </div>
                     <dl class="row">
                         <div class="bg-light rounded border border-2 mb-1 mt-1">

@@ -52,8 +52,6 @@ class DetailController extends Controller
         }else{
             $restaurants = $restaurants['shop'];
         }
-        // dump($restaurants);
-        $msg = '詳細';
         return view('detail', compact('inputLatitude','inputLongitude','inputSearchRadius','inputPage','request','restaurants'));
     }
 }

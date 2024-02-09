@@ -4,7 +4,6 @@
     <div class="row">
         <form method="GET" action="{{ route('result') }}">
             <div class="form-group">
-                {{-- {{ csrf_field() }} --}}
                 <dl class="row">
                     <dt class="col">
                         <button type="button" id="geolocation_button" class="btn btn-light btn-outline-dark">現在地取得</button>

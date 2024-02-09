@@ -48,14 +48,11 @@ class ResultController extends Controller
         // 'format' => 'json'としたのでJSON形式でデータが返ってくるので、連想配列型のオブジェクトに変換
         $restaurants = json_decode($response->getBody(), true)['results'];
         if(!isset($restaurants['results_available']) or $restaurants['results_available']==0){
-            // dump($restaurants);
-            // dd($options);
             return redirect('search')
                 ->with('error','対象範囲に飲食店が見つかりませんでした');
         }else{
             $restaurants = $restaurants['shop'];
         }
-        // dump($restaurants);
 
         // 1ページごとの表示件数
         $perPage = 10;
@@ -71,9 +68,6 @@ class ResultController extends Controller
                 'pageName' => 'page',
         ];
         $paginatedRestaurantDatas = new LengthAwarePaginator($pageData, collect($restaurants)->count(), $perPage, $page, $options);
-        $msg = '結果';
-        // dump($paginatedRestaurantDatas);
-        // dump($request);
         return view('result', compact('inputLatitude','inputLongitude','inputSearchRadius','request','paginatedRestaurantDatas'));
     }
 }
