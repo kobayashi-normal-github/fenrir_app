@@ -7,9 +7,9 @@ function getGeoLocation() {
     function success(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        const accuracy = position.coords.accuracy;
+        const accuracy = Math.round(position.coords.accuracy);
 
-        status.value = "誤差: "+accuracy+"[m]";
+        status.value = "現在地との誤差: "+accuracy+"[m]";
         inputLatitude.value = latitude;
         inputLongitude.value = longitude;
 
